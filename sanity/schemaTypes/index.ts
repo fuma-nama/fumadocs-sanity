@@ -1,6 +1,7 @@
 import { type SchemaTypeDefinition } from "sanity";
-import { docsType, card, blockContent } from "./docsType";
+import { docsType } from "./docsType";
+import { blockContent, callout, card, cards } from "./base";
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [card, blockContent, docsType],
+  types: [blockContent, callout, card, cards, docsType],
 };

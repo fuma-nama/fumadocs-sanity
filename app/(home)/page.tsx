@@ -5,7 +5,7 @@ export default function HomePage() {
     <main className="flex flex-1 flex-col justify-center text-center">
       <h1 className="mb-4 text-2xl font-bold">Welcome to Fumadocs</h1>
       <p className="text-sm text-fd-muted-foreground mb-6">
-        An example to use Fumadocs with Sanity.
+        An example to use Fumadocs with Sanity, fork it to edit.
       </p>
       <div className="flex flex-row gap-2 items-center text-fd-muted-foreground justify-center">
         <Link

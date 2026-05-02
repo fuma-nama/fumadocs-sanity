@@ -13,7 +13,8 @@ import { apiVersion, dataset, projectId } from "./sanity/env";
 import { schema } from "./sanity/schemaTypes";
 import { structure } from "./sanity/structure";
 import { codeInput } from "@sanity/code-input";
-import { presentationTool } from "@sanity/presentation";
+import { presentationTool } from "sanity/presentation";
+import { resolve } from "./sanity/presentation/resolve";
 
 export default defineConfig({
   basePath: "/studio",
@@ -25,6 +26,7 @@ export default defineConfig({
     codeInput(),
     structureTool({ structure }),
     presentationTool({
+      resolve,
       previewUrl: {
         previewMode: {
           enable: "/api/draft-mode/enable",

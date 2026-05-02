@@ -1,25 +1,18 @@
 import { Card, Cards } from "fumadocs-ui/components/card";
 import { DocsDescription, DocsPage, DocsTitle } from "fumadocs-ui/page";
-import { DOCS_QUERY } from "@/sanity/lib/queries";
-import { sanityFetch } from "@/sanity/lib/live";
+import { getSource } from "@/lib/source";
 
 export default async function Page() {
-  const pages = await sanityFetch({ query: DOCS_QUERY });
+  const source = await getSource();
 
   return (
     <DocsPage>
       <DocsTitle>Pages</DocsTitle>
       <DocsDescription>View the latest pages</DocsDescription>
       <Cards>
-        {pages.data.map((page) =>
-          page.slug ? (
-            <Card
-              key={page.slug.current}
-              title={page.title ?? ""}
-              href={`/docs/${page.slug.current}`}
-            />
-          ) : null,
-        )}
+        {source.getPages().map((page) => (
+          <Card key={page.url} title={page.data.title} href={page.url} />
+        ))}
       </Cards>
     </DocsPage>
   );
