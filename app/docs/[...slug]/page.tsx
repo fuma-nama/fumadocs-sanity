@@ -12,7 +12,6 @@ export default async function Page(props: PageProps<"/docs/[...slug]">) {
   if (!page) notFound();
 
   const { renderToc, body } = await page.data.load();
-  console.log(body);
 
   return (
     <DocsPage toc={renderToc({ render: (body) => <CustomPortableText value={body} /> })}>
