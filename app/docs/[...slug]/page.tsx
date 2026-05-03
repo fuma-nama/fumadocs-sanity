@@ -1,4 +1,9 @@
-import { DocsPage, DocsBody, DocsDescription, DocsTitle } from "fumadocs-ui/page";
+import {
+  DocsPage,
+  DocsBody,
+  DocsDescription,
+  DocsTitle,
+} from "fumadocs-ui/layouts/notebook/page";
 import { notFound } from "next/navigation";
 import { getSource } from "@/lib/source";
 import { client } from "@/sanity/lib/client";
@@ -14,7 +19,9 @@ export default async function Page(props: PageProps<"/docs/[...slug]">) {
   const { renderToc, body } = await page.data.load();
 
   return (
-    <DocsPage toc={renderToc({ render: (body) => <CustomPortableText value={body} /> })}>
+    <DocsPage
+      toc={renderToc({ render: (body) => <CustomPortableText value={body} /> })}
+    >
       <DocsTitle>{page.data.title}</DocsTitle>
       <DocsDescription>{page.data.description}</DocsDescription>
       <DocsBody>
